@@ -8,6 +8,8 @@ package greet;
 service Greeter {
   // Sends a greeting
   rpc SayHello (HelloRequest) returns (HelloReply);
+  rpc DownloadFile (DownloadFileRequest) returns (DownloadFileResponse);
+  rpc GetFileList (FileListRequest) returns (FileListResponse);
 }
 
 // The request message containing the user's name.
@@ -17,7 +19,29 @@ message HelloRequest {
   repeated string list = 3;
 }
 
+message DownloadFileRequest {
+  string fileId = 1;
+}
+
 // The response message containing the greetings.
 message HelloReply {
   string message = 1;
+  bytes content = 2;
+}
+
+message DownloadFileResponse {
+    bytes content = 1;
+}
+
+message FileData {
+    string id = 1;
+    string fileName = 2;
+}
+
+message FileListRequest {
+
+}
+
+message FileListResponse {
+    repeated FileData fileList = 1;
 }
