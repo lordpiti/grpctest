@@ -16,7 +16,6 @@ service Greeter {
 message HelloRequest {
   string name = 1;
   string surname = 2;
-  repeated string list = 3;
 }
 
 message DownloadFileRequest {
@@ -26,7 +25,6 @@ message DownloadFileRequest {
 // The response message containing the greetings.
 message HelloReply {
   string message = 1;
-  bytes content = 2;
 }
 
 message DownloadFileResponse {

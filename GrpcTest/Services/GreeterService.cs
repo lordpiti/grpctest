@@ -22,15 +22,9 @@ namespace GrpcTest
 
         public override Task<HelloReply> SayHello(HelloRequest request, ServerCallContext context)
         {
-            var listString = string.Join(",",request.List.ToArray());
-
-            var bubu = _testGoogleDrive.DownloadFile("");
-
-
             return Task.FromResult(new HelloReply
             {
-                Message = "Hello " + request.Name + " " + request.Surname +": "+ listString,
-                Content = ByteString.CopyFrom(bubu.ToArray())
+                Message = "Hello " + request.Name + " " + request.Surname
             });
         }
 
